@@ -34,10 +34,10 @@ jobs:
         - name: Setup Terraform with specified version on the runner
           uses: hashicorp/setup-terraform@v3
 
-        # - name: Terraform Init
-        #   id: init
-        #   #run: terraform init -backend-config "bucket=$BUCKET_TF_STATE"
-        #   run: terraform init
+        - name: Terraform Init
+          id: init
+          #run: terraform init -backend-config "bucket=$BUCKET_TF_STATE"
+          run: terraform init
 
         # - name: Terraform Format
         #   id: fmt
