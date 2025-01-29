@@ -54,13 +54,13 @@ jobs:
           continue-on-error: true 
 
         - name: Terraform Plan Status 
-        #   if: steps.plan.outcome == 'failure'
-        #   run: exit 1
+          if: steps.plan.outcome == 'failure'
+          run: exit 1
 
-        # - name: Terraform Apply
-        #   id: apply
-        #   if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        #   run: terraform apply -auto-approve -input=false -parallelism=1 planfile
+        - name: Terraform Apply
+          id: apply
+          if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+          run: terraform apply -auto-approve -input=false -parallelism=1 planfile
 
         # - name: Terraform Destroy
         #   id: destroy
